@@ -5,6 +5,8 @@ Course final project
 
 > The aim of the project is to make a hypothesis about some feature and its effect on the 'y' column (term deposit subscription) and then create a Machine Lerning model that will help us proves or disprove the assumed hypothesis   
 
+Technologies used: Spark (EDA, data cleaning), Hadoop (HDFS, MapReduce), MongoDB (storage of data), Pandas, Scikit-learn (building ML models)
+
 Attribute information:
    
    1 - age (numeric)
