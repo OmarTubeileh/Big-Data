@@ -1,0 +1,54 @@
+get in the Hadoop sbin
+cd /usr/local/hadoop/sbin
+
+start Hadoop services
+start-all.sh
+
+create directory
+hadoop fs -mkdir /finalProject
+
+put the dataset in the directory
+hadoop fs -put -f -p /home/ubuntu/Desktop/bank-additional-balanced.csv /finalProject
+
+see contents of the directory
+hadoop fs -ls -R /finalProject
+
+show contents of file
+hadoop fs -cat /finalProject/TestOutput/part-00000
+
+remove directory
+hdfs dfs -rm -r /finalProject/outputTest
+
+change the file privacy to read/write
+chmod +x /home/ubuntu/Desktop/mapper.py
+
+apply mapReduce
+hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-*.jar \
+    -file mapper.py \
+    -file reducer.py \
+    -mapper mapper.py \
+    -reducer reducer.py \
+    -input /finalDSBD/bank-additional-balanced.csv \
+    -output /finalDSBD/output
+    
+Install dos2unix (if not already installed):
+sudo apt-get install dos2unix
+
+Convert the line endings of your scripts:
+dos2unix mapper.py
+dos2unix reducer.py
+
+moving the mapReduce output to local host to be able to move it to mongodb
+hadoop fs -get hdfs://localhost:54310/lama/new2/part-00000 /home/ubuntu/Desktop/FinalProjectDSBD
+    
+# changing name of file
+hdfs dfs -mv /finalDSBD/part-00000-1dab83d6-df48-4dcd-9509-916b546a98e8-c000.csv /finalDSBD/bank-additional-balanced.csv
+
+#deleting file
+hdfs dfs -rm /finalDSBD/bank-additional-balanced.csv
+    
+    
+    
+
+
+
