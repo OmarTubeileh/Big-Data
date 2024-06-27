@@ -1,5 +1,5 @@
-# Big-Data
-Data Science and Big Data Analysis course final project
+# Data Science and Big Data Analysis
+Course final project
 
 > In this project I use the Bank Marketing dataset on Kaggle that has information of clients of a bank and states whether a client is subscribed to a term deposit or no 
 > The aim of the project is to make a hypothesis about some feature and its effect on the 'y' column (term deposit subscription) and then create a Machine Lerning model that will help us proves or disprove the assumed hypothesis   
